@@ -1,0 +1,20 @@
+{
+  "name": "wangyu/tp-route",
+  "description": "ThinkPhp5.1 的反射路由类核心模块封装，含多种路由注册模式，路由及请求类型验证,基于`wangyu/reflex-core`扩展。本扩展为注释全家桶的核心路由模块。",
+  "authors": [
+    {
+      "name": "wangyu",
+      "email": "china_wangyu@aliyun.com"
+    }
+  ],
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "WangYu\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=7.1.0",
+    "wangyu/reflex-core": ">=0.0.1"
+  }
+}
