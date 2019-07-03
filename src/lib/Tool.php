@@ -9,6 +9,10 @@ namespace WangYu\lib;
 
 use WangYu\exception\Exception;
 
+/**
+ * Trait Tool 扩展的工具类
+ * @package WangYu\lib
+ */
 trait Tool
 {
     public static $EXT = '.php';

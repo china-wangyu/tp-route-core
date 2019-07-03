@@ -8,6 +8,11 @@ namespace WangYu\lib;
 
 use WangYu\exception\Exception;
 
+/**
+ * Class Reflex 反射类
+ * @extends \WangYu\Reflex 文档：https://github.com/china-wangyu/php-reflex-core
+ * @package WangYu\lib
+ */
 class Reflex extends \WangYu\Reflex
 {
     /**
