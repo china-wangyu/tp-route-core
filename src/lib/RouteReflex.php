@@ -13,7 +13,7 @@ use WangYu\exception\RouteException;
  * @extends \WangYu\Reflex 文档：https://github.com/china-wangyu/php-reflex-core
  * @package WangYu\lib
  */
-class Reflex extends \WangYu\Reflex
+class RouteReflex extends \WangYu\Reflex
 {
     /**
      * 获取模块API反射文档

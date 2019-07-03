@@ -8,7 +8,7 @@ namespace WangYu;
 use WangYu\exception\RouteException;
 use think\facade\Route as Router;
 use WangYu\lib\RouteApi;
-use WangYu\lib\Reflex;
+use WangYu\lib\RouteReflex;
 class Route extends Router
 {
     public static $module;
@@ -26,7 +26,7 @@ class Route extends Router
         try{
             static::$module = $module;
             static::$middleware = $middleware;
-            $apis = Reflex::toReflex((new RouteApi(static::$module))->get());
+            $apis = RouteReflex::toReflex((new RouteApi(static::$module))->get());
             foreach ($apis as $api){
                 static::setClassRoute($api);
             }
