@@ -20,7 +20,7 @@ trait Tool
      * @param int $flags file_put_content flags参数
      * @return bool|int 返回数据 或 false
      */
-    public static function write(string $path,string $data = '',$flags = FILE_APPEND|LOCK_EX){
+    public static function write(string $path,string $data, $flags = FILE_APPEND|LOCK_EX){
         return file_put_contents($path,$data,$flags);
     }
 

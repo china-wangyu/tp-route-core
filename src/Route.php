@@ -15,6 +15,12 @@ class Route extends Router
 
     public static $middleware;
 
+    /**
+     * 注释路由模块注册
+     * @param string $module
+     * @param array $middleware
+     * @throws Exception
+     */
     public static function reflex(string $module = 'api',$middleware = [])
     {
         try{
