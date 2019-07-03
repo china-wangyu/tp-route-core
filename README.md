@@ -38,7 +38,6 @@ composer require wangyu/tp-route
 /**
  * Class User
  * @route('cms/user')
- ......
  */
 class User extends Controller{.....}
 ```
@@ -49,7 +48,6 @@ class User extends Controller{.....}
 /**
  * 账户登陆
  * @route('cms/user/login','post')
-......
  */
 public function login(Request $request){......}
 ```
@@ -85,7 +83,6 @@ return [
  * Class User
  * @route('cms/user')
  * @middleware('Param','Auth')
- ......
  */
 class User extends Controller{.....}
 ```
@@ -97,7 +94,6 @@ class User extends Controller{.....}
  * 账户登陆
  * @route('cms/user/login','post')
  * @middleware('Param','Auth')
-......
  */
 public function login(Request $request){......}
 ```
