@@ -63,12 +63,14 @@ class Route extends Router
      */
     public static function setMiddleware(array $clsMiddleware,array $funcMiddleware):void
     {
+        // 设置类中间件
         if(!empty($clsMiddleware)){
             empty(static::$middleware) ?
                 static::$middleware = $clsMiddleware :
                 array_merge($clsMiddleware,static::$middleware);
         }
 
+        // 设置方法中间件
         if(!empty($funcMiddleware)){
             empty(static::$middleware) ?
                 static::$middleware = $funcMiddleware :
@@ -84,11 +86,17 @@ class Route extends Router
      */
     public static function getActionRule(string $classRule, string $actionRule):string
     {
-
+        // 类路由和方法路由规则为空
         if (empty($classRule) and empty($actionRule)) return '';
+        // 类路由不为空，方法路由为空
+        if (!empty($classRule) and empty($actionRule)) return $classRule;
+        // 类路由为空，方法路由不为空
         if (empty($classRule) and !empty($actionRule)) return $actionRule;
-        if (substr($actionRule,0,1) == '/') return $actionRule;
+        // 都不为空的情况下，1.方法路由包含类路由规则
         if (strstr($actionRule,$classRule)) return $actionRule;
+        // 都不为空的情况下，2.方法路由规则为根规则
+        if (substr($actionRule,0,1) == '/') return $actionRule;
+        // 都不为空的情况下，3. 拼接形成最后的规则
         return $classRule.'/'.$actionRule;
     }
 
