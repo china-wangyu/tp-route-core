@@ -5,9 +5,9 @@
 
 namespace WangYu;
 
-use WangYu\exception\Exception;
+use WangYu\exception\RouteException;
 use think\facade\Route as Router;
-use WangYu\lib\Api;
+use WangYu\lib\RouteApi;
 use WangYu\lib\Reflex;
 class Route extends Router
 {
@@ -19,19 +19,19 @@ class Route extends Router
      * 注释路由模块注册
      * @param string $module
      * @param array $middleware
-     * @throws Exception
+     * @throws RouteException
      */
     public static function reflex(string $module = 'api',$middleware = [])
     {
         try{
             static::$module = $module;
             static::$middleware = $middleware;
-            $apis = Reflex::toReflex((new Api(static::$module))->get());
+            $apis = Reflex::toReflex((new RouteApi(static::$module))->get());
             foreach ($apis as $api){
                 static::setClassRoute($api);
             }
         }catch (\Exception $exception){
-            throw new Exception(['message'=>$exception->getMessage()]);
+            throw new RouteException(['message'=>$exception->getMessage()]);
         }
     }
 

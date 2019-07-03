@@ -6,7 +6,7 @@
 namespace WangYu\lib;
 
 
-use WangYu\exception\Exception;
+use WangYu\exception\RouteException;
 
 /**
  * Class Reflex 反射类
@@ -19,7 +19,7 @@ class Reflex extends \WangYu\Reflex
      * 获取模块API反射文档
      * @param array $api
      * @return array|null
-     * @throws Exception
+     * @throws RouteException
      * @throws \LinCmsTp5\exception\BaseException
      */
     public static function toReflex(array $api):?array
@@ -35,7 +35,7 @@ class Reflex extends \WangYu\Reflex
             }
             return $result;
         }catch (\Exception $exception){
-            throw new Exception(['message'=>$exception->getMessage()]);
+            throw new RouteException(['message'=>$exception->getMessage()]);
         }
     }
 
@@ -43,7 +43,7 @@ class Reflex extends \WangYu\Reflex
      * 获取类文档注释
      * @param $object
      * @return array|string
-     * @throws Exception
+     * @throws RouteException
      * @throws \LinCmsTp5\exception\BaseException
      */
     public static function getApiClass($object)
@@ -64,7 +64,7 @@ class Reflex extends \WangYu\Reflex
             }
             return $result;
         }catch (\Exception $exception){
-            throw new Exception($exception->getMessage());
+            throw new RouteException($exception->getMessage());
         }
     }
 
@@ -73,7 +73,7 @@ class Reflex extends \WangYu\Reflex
      * @param $object
      * @param array $actions
      * @return array
-     * @throws Exception
+     * @throws RouteException
      * @throws \LinCmsTp5\exception\BaseException
      */
     public static function getApiActions($object,array $actions = []):array
@@ -100,7 +100,7 @@ class Reflex extends \WangYu\Reflex
             }
             return $result;
         }catch (\Exception $exception){
-            throw new Exception($exception->getMessage());
+            throw new RouteException($exception->getMessage());
         }
     }
 }

@@ -6,7 +6,7 @@
 namespace WangYu\exception;
 
 
-class Exception extends \Exception
+class RouteException extends \Exception
 {
     public $code = 400;
     public $message = '反射路由设置错误';
